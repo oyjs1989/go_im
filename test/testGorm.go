@@ -3,14 +3,14 @@ package main
 import (
 	"im_go/models"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
 var mysqlconfig = "root:123456"
 
 func main() {
-	db, err := gorm.Open(mysql.Open("test.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
