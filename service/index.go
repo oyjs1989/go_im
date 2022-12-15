@@ -11,3 +11,7 @@ func GetIndex(c *gin.Context) {
 		"message": "pong",
 	})
 }
+
+func GetHome(c *gin.Context) {
+	c.Redirect(http.StatusTemporaryRedirect, "/index")
+}
