@@ -10,6 +10,6 @@ func Router() *gin.Engine {
 	// ...
 	r := gin.Default()
 	r.GET("/index", service.GetIndex)
-	r.GET("/", service.GetHome)
+	r.GET("/user", service.GetUser)
 	return r
 }
