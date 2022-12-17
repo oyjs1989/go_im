@@ -2,10 +2,14 @@ package utils
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"time"
 
 	"github.com/spf13/viper"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var db *gorm.DB
@@ -23,9 +27,19 @@ func InitConfig() {
 }
 
 func InitMySQL() {
+	// 自定义打印sql
+	newLogger := logger.New(
+		log.New(os.Stdout, "\r\n", log.LstdFlags),
+		logger.Config{
+			SlowThreshold: time.Second, // 满sql
+			LogLevel:      logger.Info,
+			Colorful:      true, //彩色
+		},
+	)
+
 	// ...
 	fmt.Println("Init MySQL")
-	db, _ = gorm.Open(sqlite.Open(viper.GetString("db")), &gorm.Config{})
+	db, _ = gorm.Open(sqlite.Open(viper.GetString("db")), &gorm.Config{Logger: newLogger})
 }
 
 func GetDB() *gorm.DB {
