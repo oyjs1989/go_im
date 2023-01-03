@@ -17,7 +17,7 @@ func GetIndex(c *gin.Context) {
 	})
 }
 
-// GetHome
+// @GetHome
 // @Tags 首页
 // @Success 200 {string} welcome
 // @Router /index [get]

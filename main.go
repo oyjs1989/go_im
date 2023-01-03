@@ -1,10 +1,12 @@
 package main
 
 import (
+	_ "im_go/docs"
 	"im_go/router"
 	"im_go/utils"
 )
 
+// https://profilinator.rishav.dev/
 func main() {
 	utils.InitConfig()
 	utils.InitMySQL()

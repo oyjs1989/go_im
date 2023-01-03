@@ -33,3 +33,18 @@ func GetOne() *UserBasic {
 	db.Find(&user)
 	return &user
 }
+
+func CreateOne(name string, pw string) *UserBasic {
+	user := UserBasic{Name: name, PassWord: pw}
+	db := utils.GetDB()
+	db.Create(&user)
+	return &user
+}
+
+// 查找用户
+func FindUser(name string) *UserBasic {
+	user := UserBasic{}
+	db := utils.GetDB()
+	db.Where("name = ?", name).Find(&user)
+	return &user
+}
