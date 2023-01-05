@@ -34,3 +34,5 @@ Instant Messaging with Golang
 ### 架构参考[OpenIM](https://doc.rentsoft.cn)
 
 ### [ONNX](https://github.com/onnx/models)
+
+#### [IMAGE CLASSIFICATION](https://github.com/weiaicunzai/awesome-image-classification)
