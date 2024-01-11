@@ -2,7 +2,7 @@ package service
 
 import (
 	"net/http"
-
+	"time"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,5 +22,6 @@ func GetIndex(c *gin.Context) {
 // @Success 200 {string} welcome
 // @Router /index [get]
 func GetHome(c *gin.Context) {
+	time.Sleep(10 * time.Second)
 	c.Redirect(http.StatusTemporaryRedirect, "/index")
 }
