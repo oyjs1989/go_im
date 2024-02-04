@@ -9,18 +9,18 @@ import (
 
 type UserBasic struct {
 	gorm.Model
-	Name          string
-	PassWord      string
-	Phone         string
-	Email         string
-	Identity      string
-	ClientIp      string
-	ClientPort    string
-	LoginTime     time.Time
-	HeartBeatTime time.Time
-	LoginOutTime  time.Time
-	IsLogout      bool
-	DeviceInfo    string
+	Name          *string
+	PassWord      *string
+	Phone         *string
+	Email         *string
+	Identity      *string
+	ClientIp      *string
+	ClientPort    *string
+	LoginTime     *time.Time
+	HeartBeatTime *time.Time
+	LoginOutTime  *time.Time
+	IsLogout      *bool
+	DeviceInfo    *string
 }
 
 func (table *UserBasic) TableName() string {
@@ -34,7 +34,7 @@ func GetOne() *UserBasic {
 	return &user
 }
 
-func CreateOne(name string, pw string) *UserBasic {
+func CreateOne(name *string, pw *string) *UserBasic {
 	user := UserBasic{Name: name, PassWord: pw}
 	db := utils.GetDB()
 	db.Create(&user)

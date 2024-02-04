@@ -36,7 +36,7 @@ func GetUser(c *gin.Context) {
 func CreateUser(c *gin.Context) {
 	name := c.PostForm("name")
 	pw := c.PostForm("pw")
-	user := models.CreateOne(name, pw)
+	user := models.CreateOne(&name, &pw)
 	c.JSON(http.StatusOK, gin.H{
 		"message": user,
 	})
